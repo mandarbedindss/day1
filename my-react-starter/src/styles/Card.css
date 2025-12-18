@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f6f8;
+}
+
+/* Grid wrapper */
+.profiles-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  width: 100%;
+  gap: 32px;
+  padding: 60px 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Card */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+
+  transition: 
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    flex-direction 0.2s ease;
+}
+
+/* Hover animation (desktop) */
+.profile-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Image */
+.profile-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin-bottom: 6px;
+
+  transition: transform 0.35s ease;
+}
+
+.profile-card:hover .profile-img {
+  transform: scale(1.08);
+}
+
+/* Text */
+.profile-info h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 8px 0 0 0;
+  color: #0f172a;
+}
+
+.job {
+  font-size: 16px;
+  color: #64748b;
+  margin-top: 10px;
+}
+
+.city {
+  font-size: 15px;
+  color: #94a3b8;
+  margin-top: 6px;
+}
+
+/* Medium screens: horizontal scrolling carousel */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .profiles-wrapper {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 40px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .profile-card {
+    flex: 0 0 320px;
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* Mobile: stacked vertical list */
+@media (max-width: 480px) {
+  .profiles-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 16px;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .profile-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .profile-info h2 {
+    font-size: 18px;
+  }
+
+  .job {
+    font-size: 15px;
+  }
+
+  .city {
+    font-size: 14px;
+  }
+}
