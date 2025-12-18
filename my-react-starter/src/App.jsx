@@ -1,12 +1,11 @@
 import './App.css'
 import React from 'react'
-import Login from './Components/Login'
-
+import Card from './Components/Card'
 function App(){
   return(<>
-  <div><p>Adding changes for branching purpose</p></div>
-  <Login/>
-  </>)
+  <Card/>
+  </>
+ )
 }
 
 export default App
